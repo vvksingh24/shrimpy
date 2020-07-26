@@ -55,7 +55,13 @@ celery -A coinswitch worker -l info
 
 celery -A coinswitch beat -l info
 ```
-start the server
+Apply Migrations
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Start the server
 ```
 python manage.py runserver
 ```
