@@ -16,7 +16,8 @@ python3 -m venv "$venv_name"
 echo "virtual environment created"
 echo "activating virtual environment"
 
-source "$venv_name"/bin/activate
+
+source "$env"
 
 echo "installing requirements"
 
