@@ -17,7 +17,7 @@ echo "virtual environment created"
 echo "activating virtual environment"
 
 
-source "$env"
+source "$venv_name"/bin/activate
 
 echo "installing requirements"
 
