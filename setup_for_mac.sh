@@ -3,7 +3,7 @@
 # install redis
 echo "installing redis server"
 
-sudo apt install redis-server
+brew install redis
 
 echo "redis-server successfully installed"
 
