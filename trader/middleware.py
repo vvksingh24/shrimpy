@@ -3,6 +3,7 @@ import time
 
 from rest_framework.response import Response
 
+
 class ResponseTimeMiddleware(object):
     '''
     middleware for calculating response time
@@ -10,14 +11,20 @@ class ResponseTimeMiddleware(object):
 
     def __init__(self, get_response):
         self.get_response = get_response
-        # One-time configuration and initialization.
 
     def __call__(self, request):
-        # Code to be executed for each request before the view (and later middleware) are called
+        # get time before the view (and later middleware) are called
         start_time = time.time()
         response = self.get_response(request)
 
-        # Code to be executed for each request/response after the view is called.
+        # Calculate time after the view is called.
         duration = time.time() - start_time
+        # uncomment this code to get response time in response body
+        # if isinstance(response, Response):
+        #     response.data['time'] = f'{duration * 1000}ms'
+        #     response._is_rendered = False
+        #     response.render()
 
+        # add response time to header
+        response["X-total-time-ms"] = duration * 1000
         return response

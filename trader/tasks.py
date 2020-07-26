@@ -13,6 +13,8 @@ logger = get_task_logger(__name__)
 def sync_currencies_on_exchange(exchange):
     client = Shrimpy.get_shrimpy_instance()
     ticker_request = client.get_ticker(exchange)
+    logger.info(f'syncing currency on {exchange}')
+
     if ticker_request.status_code == 200:
         tickers = json.loads(ticker_request.content.decode('utf-8'))
         tickers_dict = {}
@@ -23,6 +25,7 @@ def sync_currencies_on_exchange(exchange):
                 tickers_dict[ticker.get('symbol').lower()] = {'usd_price': -1}
             tickers_dict[ticker.get('symbol').lower()]['last_updated'] = ticker.get('lastUpdated')
         redis_client.set(exchange, json.dumps(tickers_dict))
+        logger.info(f'syncing completed at {exchange}')
     else:
         logger.info(f'failed to sync currency on {exchange}')
 

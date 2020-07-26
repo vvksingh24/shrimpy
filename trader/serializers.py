@@ -5,13 +5,20 @@ from trader.utils import redis_client
 
 class CryptoParameterSerializer(serializers.Serializer):
     exchange = serializers.CharField(
-        required=True, error_messages={'required': 'provide exchange in query params', 'blank':'provide exchange'}
+        required=True, error_messages={
+            'required': 'enter exchange platform', 'blank': 'enter exchange platform'
+        }
     )
     fromCurrency = serializers.CharField(
-        required=True, error_messages={'required': 'provide currency you want convert','blank':'provide from currency'}
+        required=True, error_messages={
+            'required': 'enter currency to be converted', 'blank': 'enter currency to be converted'
+        }
     )
     toCurrency = serializers.CharField(
-        required=True, error_messages={'required': 'provide currency you want convert to', 'blank':'provide to currency'}
+        required=True, error_messages={
+            'required': 'enter in which currency it should be converted',
+            'blank': 'enter in which currency it should be converted'
+        }
     )
 
     def validate(self, data):
