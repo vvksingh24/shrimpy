@@ -6,11 +6,9 @@ echo "installing redis server"
 brew install redis
 
 echo "redis-server successfully installed"
-
-echo "creating virtual environment"
-
+echo "enter virtual environment name"
 read venv_name
-
+echo "creating virtual environment"
 python3 -m venv "$venv_name"
 
 echo "virtual environment created"

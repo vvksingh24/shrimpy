@@ -7,9 +7,11 @@ sudo apt install redis-server
 
 echo "redis-server successfully installed"
 
-echo "creating virtual environment"
+echo "enter virtual environment name"
 
 read venv_name
+
+echo "creating virtual environment"
 
 python3 -m venv "$venv_name"
 
