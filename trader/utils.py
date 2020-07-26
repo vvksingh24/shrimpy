@@ -22,6 +22,6 @@ def get_exchanges():
 
 
 def convert_currency(from_currency_rate, to_currency_rate):
-    return int(from_currency_rate/to_currency_rate)
+    return from_currency_rate/to_currency_rate
 
 

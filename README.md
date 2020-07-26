@@ -49,7 +49,7 @@ check out to project directory:
 ```
 cd project_dir
 ```
-start celery-worker and celery-beat
+start celery-worker and celery-beat on separate terminals
 ```
 celery -A coinswitch worker -l info
 
