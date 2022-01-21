@@ -14,7 +14,7 @@ djangorestframework==3.11.2
 future==0.18.2
 idna==2.10
 importlib-metadata==1.7.0
-ipython==7.16.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 jedi==0.17.2
 kombu==4.6.11
